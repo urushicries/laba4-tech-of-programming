@@ -96,8 +96,6 @@ class BinaryTree:
     def _delete_node(self, node):
         logging.basicConfig(level=logging.INFO)
         logger = logging.getLogger(__name__)
-
-        # Node with only one child or no child
         if node.left is None:
             logger.info(
                 f"Удаление узла {node.value}, у него нет левого потомка.")
@@ -107,7 +105,6 @@ class BinaryTree:
                 f"Удаление узла {node.value}, у него нет правого потомка.")
             self._transplant(node, node.left)
         else:
-            # Node with two children: get the inorder successor
             successor = self._minimum(node.right)
             logger.info(
                 f"Удаление узла {node.value}, у него два потомка. Следующий по порядку: {successor.value}")
